@@ -9,7 +9,7 @@
 - [x] Project Started 
 - [ ] Changing Code from an app inventor component to an extension      
 - [ ] To Compile It As An Extension To Use
-- [ ] Created The [Documentation](https://hrichiksite.github.io/InterWeb/docs/)
+- [ ] Created The [Documentation](https://hrichiksite.github.io/CustomWeb/docs/)
 - [ ] Uploaded AIX Extension File
 - [ ] Testing
 - [ ] Make Compilable With Kodular
