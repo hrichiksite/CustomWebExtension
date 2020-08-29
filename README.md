@@ -4,7 +4,6 @@
 
 ### Edited To Compile It As An Extension To Be Used In Kodular.
 
-## View [Documentation Here](https://hrichiksite.github.io/InterWeb/docs/)
 
 ## Roadmap:-
 - [x] Project Started 
