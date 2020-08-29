@@ -1,6 +1,6 @@
 # InterWeb JAVA Source Code For Kodular
 
-### This Is The Modified Source Code Of The Navigation Component In MIT AI2 App Inventor
+### This Is The Modified Source Code Of The Web Component In MIT AI2 App Inventor
 
 ### Edited To Compile It As An Extension To Be Used In Kodular.
 
