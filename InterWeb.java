@@ -17,7 +17,7 @@ import android.text.TextUtils;
 
 import android.util.Log;
 
-import androidx.annotation.VisibleForTesting;
+
 
 import com.google.appinventor.components.annotations.DesignerComponent;
 import com.google.appinventor.components.annotations.DesignerProperty;
@@ -100,7 +100,7 @@ import org.xml.sax.InputSource;
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
     iconName = "https://i.imgur.com/d1lsm7O.png")
-@SimpleObject
+@SimpleObject (external =true)
 @UsesPermissions(permissionNames = "android.permission.INTERNET," +
   "android.permission.WRITE_EXTERNAL_STORAGE," +
   "android.permission.READ_EXTERNAL_STORAGE")
@@ -113,7 +113,7 @@ import org.xml.sax.InputSource;
 @UsesLibraries(libraries = "json.jar")
 
 
-public class InterWeb extends AndroidNonvisibleComponent implements Component {
+public class InterWeb extends AndroidNonvisibleComponent{
   /**
    * InvalidRequestHeadersException can be thrown from processRequestHeaders.
    * It is thrown if the list passed to processRequestHeaders contains an item that is not a list.
