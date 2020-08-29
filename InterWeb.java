@@ -333,7 +333,7 @@ public class InterWeb extends AndroidNonvisibleComponent{
     this.allowCookies = allowCookies;
     if (allowCookies && cookieHandler == null) {
       form.dispatchErrorOccurredEvent(this, "AllowCookies",
-          ErrorMessages.ERROR_FUNCTIONALITY_NOT_SUPPORTED_InterWeb_COOKIES);
+          ErrorMessages.ERROR_FUNCTIONALITY_NOT_SUPPORTED_Web_COOKIES);
     }
   }
 
@@ -425,7 +425,7 @@ public void SetCookies(String url,String cookieString){
       GingerbreadUtil.clearCookies(cookieHandler);
     } else {
       form.dispatchErrorOccurredEvent(this, "ClearCookies",
-          ErrorMessages.ERROR_FUNCTIONALITY_NOT_SUPPORTED_InterWeb_COOKIES);
+          ErrorMessages.ERROR_FUNCTIONALITY_NOT_SUPPORTED_Web_COOKIES);
     }
   }
 
@@ -693,7 +693,7 @@ public void SetCookies(String url,String cookieString){
           }
         } catch (UnsupportedEncodingException e) {
           form.dispatchErrorOccurredEvent(InterWeb.this, functionName,
-              ErrorMessages.ERROR_InterWeb_UNSUPPORTED_ENCODING, encoding);
+              ErrorMessages.ERROR_Web_UNSUPPORTED_ENCODING, encoding);
           return;
         }
 
@@ -784,10 +784,10 @@ public void SetCookies(String url,String cookieString){
           sb.append(delimiter).append(UriEncode(name)).append('=').append(UriEncode(value));
         } else {
           throw new BuildRequestDataException(
-              ErrorMessages.ERROR_InterWeb_BUILD_REQUEST_DATA_NOT_TWO_ELEMENTS, i + 1);
+              ErrorMessages.ERROR_Web_BUILD_REQUEST_DATA_NOT_TWO_ELEMENTS, i + 1);
         }
       } else {
-        throw new BuildRequestDataException(ErrorMessages.ERROR_InterWeb_BUILD_REQUEST_DATA_NOT_LIST, i + 1);
+        throw new BuildRequestDataException(ErrorMessages.ERROR_Web_BUILD_REQUEST_DATA_NOT_LIST, i + 1);
       }
       delimiter = "&";
     }
@@ -878,7 +878,7 @@ public void SetCookies(String url,String cookieString){
       return decodeJsonText(jsonText, true);
     } catch (IllegalArgumentException e) {
       form.dispatchErrorOccurredEvent(this, "JsonTextDecodeWithDictionaries",
-          ErrorMessages.ERROR_InterWeb_JSON_TEXT_DECODE_FAILED, jsonText);
+          ErrorMessages.ERROR_Web_JSON_TEXT_DECODE_FAILED, jsonText);
       return "";
     }
   }
@@ -930,7 +930,7 @@ public void SetCookies(String url,String cookieString){
       return JsonUtil.encodeJsonObject(jsonObject);
     } catch (IllegalArgumentException e) {
       form.dispatchErrorOccurredEvent(this, "JsonObjectEncode",
-          ErrorMessages.ERROR_InterWeb_JSON_TEXT_ENCODE_FAILED, jsonObject);
+          ErrorMessages.ERROR_Web_JSON_TEXT_ENCODE_FAILED, jsonObject);
       return "";
     }
   }
@@ -983,7 +983,7 @@ public void SetCookies(String url,String cookieString){
     } catch (Exception e) {
       Log.e(LOG_TAG, e.getMessage());
       form.dispatchErrorOccurredEvent(this, "XMLTextDecodeAsDictionary",
-          ErrorMessages.ERROR_InterWeb_JSON_TEXT_DECODE_FAILED, e.getMessage());
+          ErrorMessages.ERROR_Web_JSON_TEXT_DECODE_FAILED, e.getMessage());
       return new YailDictionary();
     }
   }
@@ -1026,7 +1026,7 @@ public void SetCookies(String url,String cookieString){
       // be good enough.
       Log.e(LOG_TAG, e.getMessage());
       form.dispatchErrorOccurredEvent(this, "XMLTextDecode",
-          ErrorMessages.ERROR_InterWeb_JSON_TEXT_DECODE_FAILED, e.getMessage());
+          ErrorMessages.ERROR_Web_JSON_TEXT_DECODE_FAILED, e.getMessage());
       // This XMLTextDecode should always return a list, even in the case of an error
       return YailList.makeEmptyList();
     }
@@ -1051,7 +1051,7 @@ public void SetCookies(String url,String cookieString){
       return HtmlEntities.decodeHtmlText(htmlText);
     } catch (IllegalArgumentException e) {
       form.dispatchErrorOccurredEvent(this, "HtmlTextDecode",
-          ErrorMessages.ERROR_InterWeb_HTML_TEXT_DECODE_FAILED, htmlText);
+          ErrorMessages.ERROR_Web_HTML_TEXT_DECODE_FAILED, htmlText);
       return "";
     }
   }
@@ -1161,17 +1161,17 @@ public void SetCookies(String url,String cookieString){
         e.getErrorMessageNumber());
     } catch (RequestTimeoutException e) {
       form.dispatchErrorOccurredEvent(InterWeb.this, method,
-        ErrorMessages.ERROR_InterWeb_REQUEST_TIMED_OUT, InterWebProps.urlString);
+        ErrorMessages.ERROR_WEB_REQUEST_TIMED_OUT, InterWebProps.urlString);
     } catch (Exception e) {
       int message;
       if (method.equals("Get")) {
         message = ErrorMessages.ERROR_InterWeb_UNABLE_TO_GET;
       } else if (method.equals("PostFile")) {
-        message = ErrorMessages.ERROR_InterWeb_UNABLE_TO_POST_OR_PUT_FILE;
+        message = ErrorMessages.ERROR_WEB_UNABLE_TO_POST_OR_PUT_FILE;
       } else if (method.equals("PutFile")) {
-        message = ErrorMessages.ERROR_InterWeb_UNABLE_TO_POST_OR_PUT_FILE;
+        message = ErrorMessages.ERROR_WEB_UNABLE_TO_POST_OR_PUT_FILE;
       } else if (method.equals("Delete")) {
-        message = ErrorMessages.ERROR_InterWeb_UNABLE_TO_DELETE;
+        message = ErrorMessages.ERROR_WEB_UNABLE_TO_DELETE;
       } else {
         message = ErrorMessages.ERROR_InterWeb_UNABLE_TO_POST_OR_PUT;
       }
@@ -1419,12 +1419,12 @@ public void SetCookies(String url,String cookieString){
         } else {
           // The sublist doesn't contain two elements.
           throw new InvalidRequestHeadersException(
-              ErrorMessages.ERROR_InterWeb_REQUEST_HEADER_NOT_TWO_ELEMENTS, i + 1);
+              ErrorMessages.ERROR_WEB_REQUEST_HEADER_NOT_TWO_ELEMENTS, i + 1);
         }
       } else {
         // The item isn't a sublist.
         throw new InvalidRequestHeadersException(
-            ErrorMessages.ERROR_InterWeb_REQUEST_HEADER_NOT_LIST, i + 1);
+            ErrorMessages.ERROR_WEB_REQUEST_HEADER_NOT_LIST, i + 1);
       }
     }
     return requestHeadersMap;
@@ -1442,7 +1442,7 @@ public void SetCookies(String url,String cookieString){
       return new CapturedProperties(this);
     } catch (MalformedURLException e) {
       form.dispatchErrorOccurredEvent(this, functionName,
-          ErrorMessages.ERROR_InterWeb_MALFORMED_URL, urlString);
+          ErrorMessages.ERROR_WEB_MALFORMED_URL, urlString);
     } catch (InvalidRequestHeadersException e) {
       form.dispatchErrorOccurredEvent(this, functionName, e.errorNumber, e.index);
     }
